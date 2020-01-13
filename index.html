@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>WeKnow | Controle de produtos</title>
+
+    <!-- CSS and font loading -->
+    <link href="assets/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Material Design components -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation on top (Logo) -->
+    <nav class="top_logo">
+      <img
+        src="http://weknowbi.com.br/wp-content/uploads/2018/04/logo-weknow.png"
+        alt="Logotipo WeKnowBI"
+        role="banner"
+      />
+    </nav>
+
+    <!-- List of items -->
+    <main class="products_list-wrapper">
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">ID</th>
+            <th class="mdl-data-table__cell--non-numeric">NOME DO PRODUTO</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="products_list_table"></tbody>
+      </table>
+    </main>
+
+    <!-- Lightbox with the form -->
+    <section id="lightbox" class="lightbox">
+
+
+      <div class="lightbox_content">
+        <div class="lightbox_close">
+          <button
+            id="bto-lightbox-close"
+            class="mdl-button mdl-js-button mdl-button--icon"
+          >
+            <i class="material-icons mdl-list__item-icon">close</i>
+          </button>
+        </div>
+
+        <form id="product-form" class="lightbox_form" method="POST" autocomplete="off">
+          <div
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          >
+            <input
+              class="mdl-textfield__input"
+              type="text"
+              id="product_name"
+              name="product_name"
+              autofocus
+            />
+            <label class="mdl-textfield__label" for="product_name"
+              >Nome do produto</label
+            >
+          </div>
+          <input type="hidden" id="product_id" name="product_id" />
+
+          <button
+            type="submit"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+          >
+            Salvar produto
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Floating button -->
+    <div class="floating-button">
+      <button id="bto-add-product" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+        <i class="material-icons">add</i>
+      </button>
+    </div>
+
+    <!-- API scripts -->
+    <script src="sys/fetchData.js"></script>
+
+    <!-- Display data scripts -->
+    <script src="sys/displayData.js"></script>
+
+    <!-- Orchestrate all the application -->
+    <script src="sys/controller.js"></script>
+
+    <!-- Start some helpers -->
+    <script src="assets/js/scripts.js"></script>
+  </body>
+</html>
